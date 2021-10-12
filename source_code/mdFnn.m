@@ -120,7 +120,6 @@ if (length(data)-tau*(maxEmb-1)) < numSamples % check whether enough data points
     numSamples = length(data)-tau*(maxEmb-1);
     samps = 1:1:numSamples;
 else
-    disp('MPIKA STI RAND')
     samps = 1:1:(length(data)-tau*(maxEmb-1)); % generate random sample
     samps = sortrows([rand(length(samps),1) samps']);
     samps = samps(1:numSamples,2);
@@ -129,7 +128,6 @@ embData = [];
 for i = 1:maxEmb % embed data
     embData = [embData data(1+(i-1)*tau:end-(maxEmb-i)*tau, 1:dims)];
     if isempty(embData) || length(embData)<3
-        %         disp('mpika')
         fnnPerc(1,2)= 0;
         break
     end
