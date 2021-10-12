@@ -18,7 +18,7 @@ for i = 1:length(data)
     
     for k = 1:2
         %horizontal visibility graph and metrics
-        VG = fast_HVG(xs(:,1)-1,ones(1,length(xs(:,1))),0); %adjacency matrix
+        VG = fast_HVG(xs(:,k)-1,ones(1,length(xs(:,1))),0); %adjacency matrix
         G  = graph(VG);
         d  = distances(G,'Method','unweighted');   %shortest path distance between all pairs of graph nodes
         LG = laplacian(G);
